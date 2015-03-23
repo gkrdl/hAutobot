@@ -1,0 +1,8 @@
+C:\Users\HAK\Desktop\volibot-master\src\bin\Release\RitoBot.exe.config
+C:\Users\HAK\Desktop\volibot-master\src\bin\Release\RitoBot.exe
+C:\Users\HAK\Desktop\volibot-master\src\bin\Release\RitoBot.pdb
+C:\Users\HAK\Desktop\volibot-master\src\obj\x86\Release\RitoBot.frm_MainWindow.resources
+C:\Users\HAK\Desktop\volibot-master\src\obj\x86\Release\RitoBot.Properties.Resources.resources
+C:\Users\HAK\Desktop\volibot-master\src\obj\x86\Release\RitoBot.csproj.GenerateResource.Cache
+C:\Users\HAK\Desktop\volibot-master\src\obj\x86\Release\RitoBot.exe
+C:\Users\HAK\Desktop\volibot-master\src\obj\x86\Release\RitoBot.pdb
