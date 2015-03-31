@@ -44,7 +44,7 @@ namespace hAutobot
 
                 string exceptionMessage = e.Exception.StackTrace.Replace("\r\n", "^");
                 string[] errorMessage = exceptionMessage.Split('^');
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\A-NIMP_LOG\\ERROR_LOG\\ERROR_LOG_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt"))
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\hAutobot_ERRORLOG\\ERROR_LOG_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".txt"))
                 {
                     foreach (string line in errorMessage)
                     {

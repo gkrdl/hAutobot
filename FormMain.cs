@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Security.AccessControl;
 using System.Text.RegularExpressions;
 
 namespace hAutobot
@@ -43,7 +44,7 @@ namespace hAutobot
             InitDefault();
             InitChecks();
             LoadConfiguration();
-            Gamecfg();
+
             while (!File.Exists(Path2 + "lol.launcher.exe"))
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -64,8 +65,26 @@ namespace hAutobot
 
         private void InitEvent()
         {
+            initializeCfgBtn.Click += delegate(object sender, EventArgs e)
+            {   
+                string path = Path2 + @"Config\\game.cfg";
+                
+                
+                FileSecurity fileSecurity = File.GetAccessControl(path);
+                fileSecurity.AddAccessRule(new FileSystemAccessRule(System.Security.Principal.WindowsIdentity.GetCurrent().Name, FileSystemRights.Delete, AccessControlType.Allow));
+                File.SetAccessControl(path, fileSecurity);
+
+
+                FileInfo fileInfo = new FileInfo(path);
+                fileInfo.IsReadOnly = false;
+                fileInfo.Delete();
+            };
+
             startBtn.Click += delegate(object sender, EventArgs e) 
-            { 
+            {
+                if (chkReplace.Checked)
+                    Gamecfg();
+
                 ConnectAccount(null);
                 startFlag = true;
                 startBtn.Enabled = false;
@@ -240,8 +259,8 @@ namespace hAutobot
             try
             {
                 XmlUtil xml = new XmlUtil(AppDomain.CurrentDomain.BaseDirectory + "config\\settings.xml");
-
                 Path2 = xml.GetNodeValue("/config/launcherpath");
+                cversion = xml.GetNodeValue("/config/version") == "0" ? cversion : xml.GetNodeValue("/config/version");
             }
             catch (Exception e)
             {

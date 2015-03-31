@@ -61,6 +61,8 @@
             this.Disconnect = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4 = new System.Windows.Forms.Panel();
             this.accountsLabel = new System.Windows.Forms.Label();
+            this.initializeCfgBtn = new System.Windows.Forms.Button();
+            this.chkReplace = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -95,7 +97,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel3);
             this.splitContainer2.Size = new System.Drawing.Size(1061, 628);
-            this.splitContainer2.SplitterDistance = 190;
+            this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.SplitterWidth = 10;
             this.splitContainer2.TabIndex = 7;
             // 
@@ -107,7 +109,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1059, 188);
+            this.panel2.Size = new System.Drawing.Size(1059, 182);
             this.panel2.TabIndex = 7;
             // 
             // splitContainer1
@@ -142,7 +144,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.RegionInput);
             this.splitContainer1.Panel2.Controls.Add(this.regionLabel);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.splitContainer1.Size = new System.Drawing.Size(1059, 157);
+            this.splitContainer1.Size = new System.Drawing.Size(1059, 151);
             this.splitContainer1.SplitterDistance = 536;
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 15;
@@ -475,12 +477,14 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkReplace);
+            this.panel1.Controls.Add(this.initializeCfgBtn);
             this.panel1.Controls.Add(this.stopBtn);
             this.panel1.Controls.Add(this.startBtn);
             this.panel1.Controls.Add(this.removeAccountsBtn);
             this.panel1.Controls.Add(this.addAccountsBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 157);
+            this.panel1.Location = new System.Drawing.Point(0, 151);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1059, 31);
             this.panel1.TabIndex = 22;
@@ -530,7 +534,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1059, 426);
+            this.panel3.Size = new System.Drawing.Size(1059, 432);
             this.panel3.TabIndex = 8;
             // 
             // panel5
@@ -540,7 +544,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 21);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1059, 405);
+            this.panel5.Size = new System.Drawing.Size(1059, 411);
             this.panel5.TabIndex = 7;
             // 
             // dataGridView1
@@ -556,7 +560,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1059, 405);
+            this.dataGridView1.Size = new System.Drawing.Size(1059, 411);
             this.dataGridView1.TabIndex = 8;
             // 
             // contextMenuStrip1
@@ -598,6 +602,26 @@
             this.accountsLabel.TabIndex = 5;
             this.accountsLabel.Text = "Account Status";
             // 
+            // initializeCfgBtn
+            // 
+            this.initializeCfgBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.initializeCfgBtn.Location = new System.Drawing.Point(786, 5);
+            this.initializeCfgBtn.Name = "initializeCfgBtn";
+            this.initializeCfgBtn.Size = new System.Drawing.Size(100, 21);
+            this.initializeCfgBtn.TabIndex = 25;
+            this.initializeCfgBtn.Text = "Config Initialize";
+            this.initializeCfgBtn.UseVisualStyleBackColor = true;
+            // 
+            // chkReplace
+            // 
+            this.chkReplace.AutoSize = true;
+            this.chkReplace.Location = new System.Drawing.Point(670, 8);
+            this.chkReplace.Name = "chkReplace";
+            this.chkReplace.Size = new System.Drawing.Size(110, 16);
+            this.chkReplace.TabIndex = 26;
+            this.chkReplace.Text = "Replace Config";
+            this.chkReplace.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -621,6 +645,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -665,6 +690,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Connect;
         private System.Windows.Forms.ToolStripMenuItem Disconnect;
+        private System.Windows.Forms.CheckBox chkReplace;
+        private System.Windows.Forms.Button initializeCfgBtn;
 
 
 

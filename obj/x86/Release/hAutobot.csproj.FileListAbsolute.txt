@@ -23,3 +23,11 @@ C:\Users\HAK\Documents\취미개발\src\bin\Release\hAutobot.pdb
 C:\Users\HAK\Documents\취미개발\src\obj\x86\Release\hAutobot.FormMain.resources
 C:\Users\HAK\Documents\취미개발\src\obj\x86\Release\RitoBot.Properties.Resources.resources
 C:\Users\HAK\Documents\취미개발\src\obj\x86\Release\hAutobot.csproj.GenerateResource.Cache
+C:\Users\HAK\Documents\GitHub\hAutobot\bin\Release\hAutobot.exe.config
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Release\hAutobot.exe
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Release\hAutobot.pdb
+C:\Users\HAK\Documents\GitHub\hAutobot\bin\Release\hAutobot.exe
+C:\Users\HAK\Documents\GitHub\hAutobot\bin\Release\hAutobot.pdb
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Release\hAutobot.FormMain.resources
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Release\RitoBot.Properties.Resources.resources
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Release\hAutobot.csproj.GenerateResource.Cache

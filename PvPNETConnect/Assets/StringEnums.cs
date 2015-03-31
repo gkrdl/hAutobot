@@ -168,6 +168,8 @@ namespace LoLLauncher
         BEGGINER_BOT = 32,
         MEDIUM_BOT = 33,
         ARAM = 65,
+        DOMINION_5x5 = 16,
+        DOMINION_BOT = 25,
         CUSTOM = 999
     }
 
