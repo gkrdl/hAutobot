@@ -170,6 +170,8 @@ namespace LoLLauncher
         ARAM = 65,
         DOMINION_5x5 = 16,
         DOMINION_BOT = 25,
+        URF_5x5 = 76,
+        URF_BOT = 83,
         CUSTOM = 999
     }
 

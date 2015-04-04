@@ -53,6 +53,14 @@
             this.startBtn = new System.Windows.Forms.Button();
             this.removeAccountsBtn = new System.Windows.Forms.Button();
             this.addAccountsBtn = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.delayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboDelay = new System.Windows.Forms.ToolStripComboBox();
+            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConfigInitialize = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceConfigToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cboReplaceCfg = new System.Windows.Forms.ToolStripComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -61,8 +69,6 @@
             this.Disconnect = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4 = new System.Windows.Forms.Panel();
             this.accountsLabel = new System.Windows.Forms.Label();
-            this.initializeCfgBtn = new System.Windows.Forms.Button();
-            this.chkReplace = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -73,6 +79,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -97,7 +104,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel3);
             this.splitContainer2.Size = new System.Drawing.Size(1061, 628);
-            this.splitContainer2.SplitterDistance = 184;
+            this.splitContainer2.SplitterDistance = 192;
             this.splitContainer2.SplitterWidth = 10;
             this.splitContainer2.TabIndex = 7;
             // 
@@ -106,10 +113,11 @@
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Controls.Add(this.splitContainer1);
             this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1059, 182);
+            this.panel2.Size = new System.Drawing.Size(1059, 190);
             this.panel2.TabIndex = 7;
             // 
             // splitContainer1
@@ -117,7 +125,7 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 24);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -144,7 +152,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.RegionInput);
             this.splitContainer1.Panel2.Controls.Add(this.regionLabel);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.splitContainer1.Size = new System.Drawing.Size(1059, 151);
+            this.splitContainer1.Size = new System.Drawing.Size(1059, 135);
             this.splitContainer1.SplitterDistance = 536;
             this.splitContainer1.SplitterWidth = 10;
             this.splitContainer1.TabIndex = 15;
@@ -301,6 +309,10 @@
             this.QueueTypeInput.Items.AddRange(new object[] {
             "NORMAL_5x5",
             "NORMAL_3x3",
+            "URF_5x5",
+            "URF_BOT",
+            "DOMINION_5x5",
+            "DOMINION_BOT",
             "INTRO_BOT",
             "BEGINNER_BOT",
             "MEDIUM_BOT",
@@ -477,14 +489,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.chkReplace);
-            this.panel1.Controls.Add(this.initializeCfgBtn);
             this.panel1.Controls.Add(this.stopBtn);
             this.panel1.Controls.Add(this.startBtn);
             this.panel1.Controls.Add(this.removeAccountsBtn);
             this.panel1.Controls.Add(this.addAccountsBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 151);
+            this.panel1.Location = new System.Drawing.Point(0, 159);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1059, 31);
             this.panel1.TabIndex = 22;
@@ -527,6 +537,92 @@
             this.addAccountsBtn.Text = "Add Acount";
             this.addAccountsBtn.UseVisualStyleBackColor = true;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.delayToolStripMenuItem,
+            this.configToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1059, 24);
+            this.menuStrip1.TabIndex = 23;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // delayToolStripMenuItem
+            // 
+            this.delayToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownMenu});
+            this.delayToolStripMenuItem.Name = "delayToolStripMenuItem";
+            this.delayToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.delayToolStripMenuItem.Text = "Delay";
+            // 
+            // toolStripDropDownMenu
+            // 
+            this.toolStripDropDownMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cboDelay});
+            this.toolStripDropDownMenu.Name = "toolStripDropDownMenu";
+            this.toolStripDropDownMenu.Size = new System.Drawing.Size(153, 22);
+            this.toolStripDropDownMenu.Text = "Connect Delay";
+            // 
+            // cboDelay
+            // 
+            this.cboDelay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDelay.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"});
+            this.cboDelay.Name = "cboDelay";
+            this.cboDelay.Size = new System.Drawing.Size(121, 23);
+            // 
+            // configToolStripMenuItem
+            // 
+            this.configToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConfigInitialize,
+            this.replaceConfigToolStripMenuItem});
+            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.configToolStripMenuItem.Text = "Config";
+            // 
+            // ConfigInitialize
+            // 
+            this.ConfigInitialize.Name = "ConfigInitialize";
+            this.ConfigInitialize.Size = new System.Drawing.Size(158, 22);
+            this.ConfigInitialize.Text = "Config Initialize";
+            // 
+            // replaceConfigToolStripMenuItem
+            // 
+            this.replaceConfigToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cboReplaceCfg});
+            this.replaceConfigToolStripMenuItem.Name = "replaceConfigToolStripMenuItem";
+            this.replaceConfigToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.replaceConfigToolStripMenuItem.Text = "Replace Config";
+            // 
+            // cboReplaceCfg
+            // 
+            this.cboReplaceCfg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboReplaceCfg.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cboReplaceCfg.Name = "cboReplaceCfg";
+            this.cboReplaceCfg.Size = new System.Drawing.Size(121, 23);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.panel5);
@@ -534,7 +630,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1059, 432);
+            this.panel3.Size = new System.Drawing.Size(1059, 424);
             this.panel3.TabIndex = 8;
             // 
             // panel5
@@ -544,7 +640,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 21);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1059, 411);
+            this.panel5.Size = new System.Drawing.Size(1059, 403);
             this.panel5.TabIndex = 7;
             // 
             // dataGridView1
@@ -560,7 +656,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1059, 411);
+            this.dataGridView1.Size = new System.Drawing.Size(1059, 403);
             this.dataGridView1.TabIndex = 8;
             // 
             // contextMenuStrip1
@@ -602,26 +698,6 @@
             this.accountsLabel.TabIndex = 5;
             this.accountsLabel.Text = "Account Status";
             // 
-            // initializeCfgBtn
-            // 
-            this.initializeCfgBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.initializeCfgBtn.Location = new System.Drawing.Point(786, 5);
-            this.initializeCfgBtn.Name = "initializeCfgBtn";
-            this.initializeCfgBtn.Size = new System.Drawing.Size(100, 21);
-            this.initializeCfgBtn.TabIndex = 25;
-            this.initializeCfgBtn.Text = "Config Initialize";
-            this.initializeCfgBtn.UseVisualStyleBackColor = true;
-            // 
-            // chkReplace
-            // 
-            this.chkReplace.AutoSize = true;
-            this.chkReplace.Location = new System.Drawing.Point(670, 8);
-            this.chkReplace.Name = "chkReplace";
-            this.chkReplace.Size = new System.Drawing.Size(110, 16);
-            this.chkReplace.TabIndex = 26;
-            this.chkReplace.Text = "Replace Config";
-            this.chkReplace.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -638,6 +714,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -645,7 +722,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -690,8 +768,14 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem Connect;
         private System.Windows.Forms.ToolStripMenuItem Disconnect;
-        private System.Windows.Forms.CheckBox chkReplace;
-        private System.Windows.Forms.Button initializeCfgBtn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem delayToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripDropDownMenu;
+        private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ConfigInitialize;
+        private System.Windows.Forms.ToolStripMenuItem replaceConfigToolStripMenuItem;
+        private System.Windows.Forms.ToolStripComboBox cboReplaceCfg;
+        private System.Windows.Forms.ToolStripComboBox cboDelay;
 
 
 

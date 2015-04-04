@@ -25,3 +25,12 @@ C:\Users\HAK\Documents\취미개발\src\obj\x86\Debug\hAutobot.csprojResolveAsse
 C:\Users\HAK\Documents\취미개발\src\obj\x86\Debug\hAutobot.FormMain.resources
 C:\Users\HAK\Documents\취미개발\src\obj\x86\Debug\RitoBot.Properties.Resources.resources
 C:\Users\HAK\Documents\취미개발\src\obj\x86\Debug\hAutobot.csproj.GenerateResource.Cache
+C:\Users\HAK\Documents\GitHub\hAutobot\bin\Debug\hAutobot.exe.config
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Debug\hAutobot.exe
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Debug\hAutobot.pdb
+C:\Users\HAK\Documents\GitHub\hAutobot\bin\Debug\hAutobot.exe
+C:\Users\HAK\Documents\GitHub\hAutobot\bin\Debug\hAutobot.pdb
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Debug\hAutobot.csprojResolveAssemblyReference.cache
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Debug\hAutobot.FormMain.resources
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Debug\RitoBot.Properties.Resources.resources
+C:\Users\HAK\Documents\GitHub\hAutobot\obj\x86\Debug\hAutobot.csproj.GenerateResource.Cache

@@ -23,11 +23,9 @@ namespace hAutobot
         public static DataTable dt = new DataTable();
         public static string Path2;
         public static string Region;
-        public static ArrayList accounts = new ArrayList();
-        public static ArrayList accounts2 = new ArrayList();
         public static int connectedAccs = 0;
         public static int curRunning = 0;
-        public static string cversion = "5.5.15_03_09_13_59";
+        public static string cversion = "5.6.15_03_31_12_48";
         private static bool closeFlag = false;
         private static bool startFlag = false;
         private static Dictionary<string, Bot> dictBot = new Dictionary<string, Bot>();
@@ -61,31 +59,47 @@ namespace hAutobot
             }
 
             LoadAccounts();
+
+            cboDelay.SelectedIndex = 0;
+            cboReplaceCfg.SelectedIndex = 1;
         }
 
         private void InitEvent()
         {
-            initializeCfgBtn.Click += delegate(object sender, EventArgs e)
+            ConfigInitialize.Click += delegate(object sender, EventArgs e)
             {   
                 string path = Path2 + @"Config\\game.cfg";
-                
-                
-                FileSecurity fileSecurity = File.GetAccessControl(path);
-                fileSecurity.AddAccessRule(new FileSystemAccessRule(System.Security.Principal.WindowsIdentity.GetCurrent().Name, FileSystemRights.Delete, AccessControlType.Allow));
-                File.SetAccessControl(path, fileSecurity);
-
 
                 FileInfo fileInfo = new FileInfo(path);
-                fileInfo.IsReadOnly = false;
-                fileInfo.Delete();
+
+
+                if (fileInfo.Exists)
+                {
+                    FileSecurity fileSecurity = File.GetAccessControl(path);
+                    fileSecurity.AddAccessRule(new FileSystemAccessRule(System.Security.Principal.WindowsIdentity.GetCurrent().Name, FileSystemRights.Delete, AccessControlType.Allow));
+                    File.SetAccessControl(path, fileSecurity);
+
+                    fileInfo.IsReadOnly = false;
+                    fileInfo.Delete();
+
+                    MessageBox.Show("Initialization is complete.", "Initialize", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+                else
+                    MessageBox.Show("Has already been initialized.", "Initialize", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             };
 
             startBtn.Click += delegate(object sender, EventArgs e) 
             {
-                if (chkReplace.Checked)
+                if (cboReplaceCfg.Text == "True")
                     Gamecfg();
 
-                ConnectAccount(null);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    ConnectAccount(dr);
+                    Thread.Sleep(Convert.ToInt16(cboDelay.Text) * 1000);
+                }
+
                 startFlag = true;
                 startBtn.Enabled = false;
                 stopBtn.Enabled = true;
@@ -319,22 +333,6 @@ namespace hAutobot
                 else
                     dictBot.Add(dr["ID"].ToString(), bot);
             }
-            else
-            {
-                dictBot.Clear();
-                foreach (DataRow rows in dt.Rows)
-                {
-                    curRunning += 1;
-                    QueueTypes queuetype;
-                    if (!rows["Queue Type"].ToString().Equals(""))
-                        queuetype = (QueueTypes)System.Enum.Parse(typeof(QueueTypes), rows["Queue Type"].ToString());
-                    else
-                        queuetype = QueueTypes.ARAM;
-
-                    Bot bot = new Bot(rows["ID"].ToString(), rows["Password"].ToString(), rows["Region"].ToString(), Path2, curRunning, queuetype);
-                    dictBot.Add(rows["ID"].ToString(), bot);
-                }
-            }
         }
 
 
@@ -345,13 +343,23 @@ namespace hAutobot
                 if (dictBot.ContainsKey(row[1].Value.ToString()))
                 {
                     dictBot[row[1].Value.ToString()].connection.Disconnect();
+
+                    Process.GetCurrentProcess().Threads[dictBot[row[1].Value.ToString()].threadID].Dispose();
                     dictBot.Remove(row[1].Value.ToString());
                 }
             }
             else
             {
                 foreach (Bot bot in dictBot.Values)
+                {
                     bot.connection.Disconnect();
+
+                    if (bot.connection.heartbeatThread.IsAlive)
+                        bot.connection.heartbeatThread.Abort();
+
+                    Process.GetCurrentProcess().Threads[bot.threadID].Dispose();
+                }
+                
 
                 dictBot.Clear();
             }
@@ -377,7 +385,7 @@ namespace hAutobot
         public static string GetSpells(string accName, string spellNumber)
         {
             DataRow[] tempRow = dt.Select("ID = '" + accName + "'");
-            return tempRow[0]["spell" + spellNumber].ToString();
+            return tempRow[0]["Spell" + spellNumber].ToString();
         }
 
         public static void UpdateStatus(string message, string accname, string columnName)
@@ -492,6 +500,7 @@ namespace hAutobot
             foreach (var proc in myProceses)
             {
                 proc.CloseMainWindow();
+                proc.Close();
             }
         }
 

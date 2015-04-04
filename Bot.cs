@@ -284,10 +284,8 @@ namespace hAutobot
                         exeProcess.Exited -= exeProcess_Exited;
                         exeProcess.Kill();
                         Thread.Sleep(500);
-                        if (exeProcess.Responding)
-                        {
-                            Process.Start("taskkill /F /IM \"League of Legends.exe\"");
-                        }
+
+                        Process.Start("taskkill /F /IM \"League of Legends.exe\"");
                         loginPacket = await this.connection.GetLoginDataPacketForUser();
                         archiveSumLevel = sumLevel;
                         sumLevel = loginPacket.AllSummonerData.SummonerLevel.Level;
